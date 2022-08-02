@@ -13,7 +13,7 @@ function LandingPage() {
           </p>
         </div>
       </div>
-      <div className="lg:block lg:basis-3/5 bg-chautari-image bg-bottom bg-contain bg-no-repeat opacity-20 lg:opacity-95   h-screen w-screen lg:static fixed -z-10"></div>
+      <div className="lg:block lg:basis-3/5 bg-chautari-image bg-bottom bg-contain bg-no-repeat opacity-20 lg:opacity-95 h-screen w-screen lg:static fixed -z-10"></div>
     </div>
   );
 }
