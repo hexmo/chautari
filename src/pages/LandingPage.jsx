@@ -1,17 +1,11 @@
-import {
-  getRedirectResult,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-} from "firebase/auth";
+import { getRedirectResult, GoogleAuthProvider } from "firebase/auth";
 
 import { auth } from "../firebase";
 import SignIn from "../components/auth/SignIn";
 
 import googleImage from "../assets/images/landing-page/google-signin.png";
-import facebookImage from "../assets/images/landing-page/facebook-signin.png";
 
 const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
 
 getRedirectResult(auth)
   .then((result) => {
@@ -37,7 +31,6 @@ function LandingPage() {
           </p>
 
           <SignIn provider={googleProvider} providerImage={googleImage} />
-          <SignIn provider={facebookProvider} providerImage={facebookImage} />
         </div>
       </div>
       <div className="lg:block lg:basis-3/5 bg-chautari-image bg-bottom bg-contain bg-no-repeat opacity-20 lg:opacity-95 h-screen w-screen lg:static fixed -z-10"></div>
