@@ -1,13 +1,17 @@
 import {
-  signInWithRedirect,
   getRedirectResult,
   GoogleAuthProvider,
+  FacebookAuthProvider,
 } from "firebase/auth";
 
 import { auth } from "../firebase";
-import google from "../assets/images/landing-page/google-signin.png";
+import SignIn from "../components/auth/SignIn";
 
-const provider = new GoogleAuthProvider();
+import googleImage from "../assets/images/landing-page/google-signin.png";
+import facebookImage from "../assets/images/landing-page/facebook-signin.png";
+
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 getRedirectResult(auth)
   .then((result) => {
@@ -19,10 +23,6 @@ getRedirectResult(auth)
   });
 
 function LandingPage() {
-  function signInWithProvider() {
-    signInWithRedirect(auth, provider);
-  }
-
   return (
     <div className="h-screen flex flex-row">
       <div className="lg:basis-2/5 w-full text-center">
@@ -36,15 +36,8 @@ function LandingPage() {
             uninterrupted live video streams.
           </p>
 
-          <div className="grid justify-center">
-            <img
-              role="button"
-              src={google}
-              onClick={signInWithProvider}
-              alt="Sign in with Google"
-              className="h-9 object-contain hover:shadow-2xl hover:saturate-200"
-            />
-          </div>
+          <SignIn provider={googleProvider} providerImage={googleImage} />
+          <SignIn provider={facebookProvider} providerImage={facebookImage} />
         </div>
       </div>
       <div className="lg:block lg:basis-3/5 bg-chautari-image bg-bottom bg-contain bg-no-repeat opacity-20 lg:opacity-95 h-screen w-screen lg:static fixed -z-10"></div>
